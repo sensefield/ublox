@@ -157,6 +157,7 @@ void Gps::initializeSerial(const std::string & port, unsigned int baudrate,
   configured_ = false;
 
   // Set the baudrate
+  serial->set_option(asio::serial_port_base::baud_rate(baudrate));
   asio::serial_port_base::baud_rate current_baudrate;
   serial->get_option(current_baudrate);
   // Incrementally increase the baudrate to the desired value
